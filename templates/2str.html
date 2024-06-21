@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../static/css/style.min.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="vacs">
+            <h3 class="title">Вакансия</h3>
+            <p class="num-vac">Номер вакансии: {{ vacancy_number }}</p>
+            <p class="desc-vac">Описание вакансии: {{ vacancy_description }}</p>
+        </div>
+        <hr class="separator">
+
+        <div class="resume-talent">
+
+            <div class="resume_and_count-talent">
+                <h3 class="title">Резюме из ТалентФорсе</h3>
+                <form action="">
+                    <label for="count-talent">Количество резюме:</label>
+                    <select name="count-talent" id="count-talent">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                        <option value="all">Все</option>
+                    </select>
+                </form>
+            </div>
+
+            <div class="resumes">
+
+                <div class="resume_and_func">
+                    <div class="resume" id="resumeContainer">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        
+                    </div>
+                    <button class="toggle-button" id="toggleButton">Показать больше</button>
+                    <div class="btns">
+                        <button class="btn1">Подходит</button>
+                        <button class="btn2">Не подходит</button>
+                    </div>
+                </div>
+
+                <div class="resume_and_func">
+                    <div class="resume" id="resumeContainer">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        
+                    </div>
+                    <button class="toggle-button" id="toggleButton">Показать больше</button>
+                    <div class="btns">
+                        <button class="btn1">Подходит</button>
+                        <button class="btn2">Не подходит</button>
+                    </div>
+                </div>
+
+                <div class="resume_and_func">
+                    <div class="resume" id="resumeContainer">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        
+                    </div>
+                    <button class="toggle-button" id="toggleButton">Показать больше</button>
+                    <div class="btns">
+                        <button class="btn1">Подходит</button>
+                        <button class="btn2">Не подходит</button>
+                    </div>
+                </div>
+
+                <div class="resume_and_func">
+                    <div class="resume" id="resumeContainer">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        
+                    </div>
+                    <button class="toggle-button" id="toggleButton">Показать больше</button>
+                    <div class="btns">
+                        <button class="btn1">Подходит</button>
+                        <button class="btn2">Не подходит</button>
+                    </div>
+                </div>
+
+                <div class="resume_and_func">
+                    <div class="resume" id="resumeContainer">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        
+                    </div>
+                    <button class="toggle-button" id="toggleButton">Показать больше</button>
+                    <div class="btns">
+                        <button class="btn1">Подходит</button>
+                        <button class="btn2">Не подходит</button>
+                    </div>
+                </div>
+
+                <div class="resume_and_func">
+                    <div class="resume" id="resumeContainer">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        
+                    </div>
+                    <button class="toggle-button" id="toggleButton">Показать больше</button>
+                    <div class="btns">
+                        <button class="btn1">Подходит</button>
+                        <button class="btn2">Не подходит</button>
+                    </div>
+                </div>
+
+                <div class="resume_and_func">
+                    <div class="resume" id="resumeContainer">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        
+                    </div>
+                    <button class="toggle-button" id="toggleButton">Показать больше</button>
+                    <div class="btns">
+                        <button class="btn1">Подходит</button>
+                        <button class="btn2">Не подходит</button>
+                    </div>
+                </div>
+
+                <div class="resume_and_func">
+                    <div class="resume" id="resumeContainer">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        
+                    </div>
+                    <button class="toggle-button" id="toggleButton">Показать больше</button>
+                    <div class="btns">
+                        <button class="btn1">Подходит</button>
+                        <button class="btn2">Не подходит</button>
+                    </div>
+                </div>
+
+                <div class="resume_and_func">
+                    <div class="resume" id="resumeContainer">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        
+                    </div>
+                    <button class="toggle-button" id="toggleButton">Показать больше</button>
+                    <div class="btns">
+                        <button class="btn1">Подходит</button>
+                        <button class="btn2">Не подходит</button>
+                    </div>
+                </div>
+
+                <div class="resume_and_func">
+                    <div class="resume" id="resumeContainer">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        
+                    </div>
+                    <button class="toggle-button" id="toggleButton">Показать больше</button>
+                    <div class="btns">
+                        <button class="btn1">Подходит</button>
+                        <button class="btn2">Не подходит</button>
+                    </div>
+                </div>
+
+                <div class="resume_and_func">
+                    <div class="resume" id="resumeContainer">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        
+                    </div>
+                    <button class="toggle-button" id="toggleButton">Показать больше</button>
+                    <div class="btns">
+                        <button class="btn1">Подходит</button>
+                        <button class="btn2">Не подходит</button>
+                    </div>
+                </div>
+
+                <div class="resume_and_func">
+                    <div class="resume" id="resumeContainer">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam doloremque quis veritatis vitae velit, sit voluptates quidem beatae recusandae modi unde impedit iste accusamus, aliquid perspiciatis? Natus nobis cum distinctio.</p>
+                        
+                    </div>
+                    <button class="toggle-button" id="toggleButton">Показать больше</button>
+                    <div class="btns">
+                        <button class="btn1">Подходит</button>
+                        <button class="btn2">Не подходит</button>
+                    </div>
+                </div>
+
+            </div>
+
+            
+        </div>
+        <hr class="separator">
+
+        <div class="resume-db">
+            <div class="resume_and_count-db">
+                <h3 class="title">Резюме из Базы данных</h3>
+                <form action="">
+                    <label for="resume_and_count-db">Количество резюме:</label>
+                    <select name="count-db" id="resume_and_count-db">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                        <option value="all">Все</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="./../static/js/2str.js"></script>
+</body>
+</html>

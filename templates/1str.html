@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1str</title>
+    <link rel="stylesheet" href="./../static/css/style.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Расширенный поиск по резюме</h1>
+        <div class="key-words">
+
+            <div class="form-container">
+                <form action="" class="keywords__form" id="keywordsForm">
+                    <input type="text" id="keywords-input" placeholder="Введите ключевые слова" name="keywords">
+                    <label for="keywords-input" class="form-label">Ключевые слова</label>
+                </form>
+                
+            </div>
+
+            <nav class="key-words__nav">
+
+                <ul class="nav-list">
+                    <li class="nav-list__item"><a href="#!" class="nav-list__link" id="toggleLink1">Выберите способ</a>
+                        <div class="nav-list__sub-nav-how" id="subNav1">
+
+                            <ul class="sub-nav-how">
+
+                                <li>
+                                    <label>
+                                        <input type="radio" name="option1">Все слова
+                                    </label>
+                                </li>
+
+                                <li>
+                                    <label>
+                                        <input type="radio" name="option1">Любое из слов
+                                    </label>
+                                </li>
+
+                                <li>
+                                    <label>
+                                        <input type="radio" name="option1">Точная фраза
+                                    </label>
+                                </li>
+
+                                <li>
+                                    <label>
+                                        <input type="radio" name="option1">Не встречаются
+                                    </label>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </li>
+                    <li class="nav-list__item"><a href="#!" class="nav-list__link" id="toggleLink2">Выберите место</a>
+                        
+                        <div class="nav-list__sub-nav-where" id="subNav2">
+
+                            <ul class="sub-nav-where">
+
+                                <li>
+                                    <label>
+                                        <input type="checkbox" value="everywhere">Везде
+                                    </label>
+                                </li>
+
+                                <li>
+                                    <label>
+                                        <input type="checkbox" value="resume_title">В названии резюме
+                                    </label>
+                                </li>
+
+                                <li>
+                                    <label>
+                                        <input type="checkbox" value="education">В образовании
+                                    </label>
+                                </li>
+
+                                <li>
+                                    <label>
+                                        <input type="checkbox" value="skills">В ключевых навыках
+                                    </label>
+                                </li>
+
+                                <li>
+                                    <label>
+                                        <input type="checkbox" value="experience">В опыте работы
+                                    </label>
+
+                                    <ul class="sub-nav-where-experience">
+
+                                        <li>
+                                            <label>
+                                                <input type="checkbox" value="companies" class="experience-checkbox">В компаниях и отраслях
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label>
+                                                <input type="checkbox" value="job" class="experience-checkbox">В должностях
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label>
+                                                <input type="checkbox" value="duties" class="experience-checkbox">В обязанностях
+                                            </label>
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </li>
+                </ul>
+
+            </nav>
+
+        </div>
+
+        <div class="vacantion">
+            <form action="/2str/{vacancy_number}" class="vacantion__form" method="post">
+                <input type="text" id="vacantion-input" placeholder="Введите номер вакансии" name="vacancy_number" required>
+                <label for="vacantion-input" class="form-label">Номер вакансии</label>
+            </form>
+            
+        </div>
+        
+        <div class="uid">
+            <form action="" class="uid__form">
+                <input type="text" id="uid-input" placeholder="Введите UID">
+                <label for="uid-input" class="form-label">UID</label>
+            </form>
+            
+        </div>
+
+        <button class="btn" type="submit" id="submit-btn">ПОИСК</button>
+
+    </div>
+    <script src="./../static/js/1str.js"></script>
+</body>
+</html>

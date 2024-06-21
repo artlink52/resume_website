@@ -1,0 +1,90 @@
+hr.separator:after {
+    background: none repeat scroll 0% 0% $biruza;
+    content: "";
+    height: 10px;
+    left: 50%;
+    margin: -5px auto auto -5px;
+    position: absolute;
+    transform: rotate(-45deg);
+    width: 10px;
+    }
+hr.separator {
+border-top: 1px solid $biruza;
+width: 100%;
+clear: both;
+}  
+
+.num-vac {
+    margin-bottom: 30px;
+}
+
+.desc-vac {
+    margin-bottom: 30px;
+}
+
+.resume-talent {
+    margin-top: 30px;
+}
+.resume_and_count-talent {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 30px;
+}
+.title {
+    font-size: 30px;
+    // margin-bottom: 30px;
+}
+.resume_and_func {
+    margin-bottom: 30px;
+}
+.resume {
+    max-height: 200px; /* Примерная высота для 10 строк */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.resume.expanded {
+    max-height: none; /* Снимаем ограничение высоты */
+}
+.toggle-button {
+    display: block;
+    margin: 10px 0;
+    cursor: pointer;
+    color: $biruza;
+    text-decoration: underline;
+}
+
+.btns {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+
+    .btn1 {
+        padding: 10px 10px;
+        background-color: green;
+        color: white;
+        transition: .3s;
+        &:hover {
+            background-color: darken(green, 10%);
+        }
+    }
+    .btn2 {
+        padding: 10px 10px;
+        background-color: red;
+        color: white;
+        transition: .1s;
+        &:hover {
+            background-color: darken(red, 20%);
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.resume-db {
+    margin-top: 30px;
+}
+.resume_and_count-db {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 30px;
+    align-items: center;
+}

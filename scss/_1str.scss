@@ -1,0 +1,178 @@
+h1 {
+    color: black;
+    font-size: 30px;
+    font-weight: 700;
+    padding-bottom: 30px;
+}
+
+// Ввод ключевых слов
+
+.form-container,
+.vacantion,
+.uid {
+    position: relative;
+    margin-top: 40px;
+}
+
+.form-label {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    font-size: 18px;
+    color: $biruza; 
+    opacity: 1;
+    transition: opacity 0.3s, top 0.3s;
+}
+
+.keywords__form,
+.vacantion__form,
+.uid__form {
+    position: relative;
+    border: 1.5px solid #ccc; 
+    border-radius: 5px;
+    height: 40px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    transition: border-color 0.3s;
+
+    &:focus-within {
+        border-color: $biruza; /* Цвет рамки при фокусе */
+    }
+
+    &:focus-within + .form-label,
+    .has-value .form-label {
+        top: -25px;
+        opacity: 1;
+    }
+
+    input {
+        width: 100%;
+        border: none;
+        outline: none;
+        height: 100%;
+        padding: 0;
+
+        &::placeholder {
+            font-size: 15px;
+            opacity: 0.5;
+        }
+    }
+}
+
+
+
+.key-words__nav {
+    margin-top: 5px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-list__link {
+    display: inline-flex;
+    color: black;
+    font-weight: 500;
+
+    &::after {
+        content: url(./../img/down-arrow-backup-2-svgrepo-com.svg);
+        margin-left: 5px; 
+        margin-top: 1px;
+}
+}
+
+.nav-list__link.expanded::after {
+    content: url(./../img/down-arrow-backup-3-svgrepo-com.svg); /* Путь к вашему измененному SVG */
+}
+
+
+// Кнопка
+.btn {
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    background: $biruza;
+    color: white;
+    padding: 10px 10px;
+    font-weight: 600;
+    transition: .3s;
+    border: 1.5px solid transparent;
+    &:hover {
+        background: darken($biruza, 10%);
+    }
+}
+
+.nav-list__item {
+    position: relative;
+}
+
+.nav-list__sub-nav-how {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 170px;
+    border: 1px solid $biruza;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    background: white;
+    border-radius: 10px;
+    display: none;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.sub-nav-how {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sub-nav-how input[type="radio"] {
+    margin-right: 10px; /* Расстояние между радиокнопкой и текстом */
+}
+
+.nav-list__sub-nav-where {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 300px;
+    border: 1px solid $biruza;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    background: white;
+    border-radius: 10px;
+    display: none;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.sub-nav-where {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sub-nav-where input[type="checkbox"] {
+    margin-right: 10px; /* Расстояние между радиокнопкой и текстом */
+}
+
+.sub-nav-where-experience {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sub-nav-where-experience {
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.sub-nav-where input[value="everywhere"] {
+    margin-bottom: 30px; /* Расстояние между радиокнопкой и текстом */
+}
+
+

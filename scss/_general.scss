@@ -1,0 +1,16 @@
+
+$biruza: #007C90;
+$text-gray: #8C8F90;
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+.container {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+    max-width: 1110px;
+    padding: 15px 15px;
+    margin: 0 auto;
+    border: 1px solid $biruza;
+    border-radius: 30px;
+}

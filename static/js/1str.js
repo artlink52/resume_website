@@ -204,42 +204,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// отправка вакансии
-// const submitBtn = document.getElementById('submit-btn');
-// const input = document.getElementById('vacantion-input');
 
-// submitBtn.addEventListener('click', async () => {
-//     const vacancyNumber = input.value;
-//     try {
-//         const response = await fetch(`http://localhost:8000/vacancy/${vacancyNumber}`);
-//         if (response.ok) {
-//             const data = await response.json();
-//             // Сохранить данные вакансии в sessionStorage
-//             sessionStorage.setItem('vacancyNumber', data.number);
-//             sessionStorage.setItem('vacancyValue', data.value);
-//             // Перенаправить на 2str.html
-//             window.location.href = '2str.html';
-//         } else {
-//             alert('Вакансия не найдена');
-//         }
-//     } catch (error) {
-//         console.error('Ошибка:', error);
-//         alert('Ошибка при запросе вакансии');
-//     }
-// });
+const form = document.querySelector('.vacantion__form');
+const submitButton = document.getElementById('submit-btn');
 
-document.getElementById("submit-btn").addEventListener("click", function() {
-    // Получаем значение поля ввода
-    var vacancyNumber = document.getElementById("vacantion-input").value;
+submitButton.addEventListener('click', function(event) {
+    event.preventDefault();  // Предотвращаем стандартное действие кнопки
 
-    // Формируем URL для перехода
-    var url = "/2str/" + encodeURIComponent(vacancyNumber);
-    
-    // Переходим на страницу с описанием вакансии
-    window.location.href = url;
-
-})
-
-
-
-
+    // Доступ к форме и отправка данных
+    form.submit();
+});

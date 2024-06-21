@@ -126,7 +126,7 @@
         </div>
 
         <div class="vacantion">
-            <form action="/2str/{vacancy_number}" class="vacantion__form" method="post">
+            <form action="/submit-vacancy" class="vacantion__form" method="post">
                 <input type="text" id="vacantion-input" placeholder="Введите номер вакансии" name="vacancy_number" required>
                 <label for="vacantion-input" class="form-label">Номер вакансии</label>
             </form>
@@ -142,6 +142,10 @@
         </div>
 
         <button class="btn" type="submit" id="submit-btn">ПОИСК</button>
+        {% if error %}
+        <p class="error-message">{{ error }}</p>
+        {% endif %}
+        
 
     </div>
     <script src="./../static/js/1str.js"></script>

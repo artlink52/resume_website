@@ -31,7 +31,7 @@
 # if __name__ == "__main__":
 #     uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
 
-from fastapi import FastAPI, Request, Form
+from fastapi import FastAPI, Request, Form, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from typing import Optional
@@ -45,45 +45,30 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
-# Главная страница (1str.html)
+vacancies = {
+    "19d9a2d3-89ba-b21c-a4eb-65f99d5dec19_Фрезеровщик": {
+        "value": "Изготовление сложно профильных деталей с точностью размеров по 4 - 6 квалификациям, сложных деталей с точностью размеров по 6, 7 квалификациям на фрезерных станках.\nОпыт работы в изготовлении режущего инструмента",
+        "number": "talentforce"
+    }
+}
+
 @app.get("/1str", response_class=HTMLResponse)
-async def read_first_page(request: Request):
-    return templates.TemplateResponse("1str.html", {"request": request})
+async def get_first_page(request: Request):
+    return templates.TemplateResponse("1str.html", {"request": request, "error": None})
 
-# Страница для обработки ввода номера вакансии и перенаправления (обработка POST-запроса)
-# @app.post("/submit-vacancy", response_class=HTMLResponse)
-# async def submit_vacancy(request: Request, vacancy_number: str):
-#     # vacancy_number = get_vacancy_number(vacancy_number)
-#     # vacancy_description = get_vacancy_description(vacancy_number)  # Функция, которая получает описание вакансии по номеру
+@app.post("/submit-vacancy")
+async def submit_vacancy(request: Request, vacancy_number: str = Form(...)):
+    for key in vacancies:
+        if key == vacancy_number:
+            return RedirectResponse(url=f"/vacancy/{key}", status_code=302)
+    return templates.TemplateResponse("1str.html", {"request": request, "error": "Введенный номер вакансии не существует."})
 
-#     response = RedirectResponse(url=f"/2str/{vacancy_number}")
-#     return response
+@app.get("/vacancy/{vacancy_key}", response_class=HTMLResponse)
+async def get_vacancy(request: Request, vacancy_key: str):
+    if vacancy_key not in vacancies:
+        raise HTTPException(status_code=404, detail="Вакансия не найдена")
+    vacancy = vacancies[vacancy_key]
+    return templates.TemplateResponse("2str.html", {"request": request, "vacancy_number": vacancy["number"], "vacancy_value": vacancy["value"]})
 
-# Страница 2 (2str.html) для отображения номера вакансии и описания
-@app.post("/2str/{vacancy_number}", response_class=HTMLResponse)
-async def read_second_page(request: Request, vacancy_number: str):
-    vacancy_number = get_vacancy_number(vacancy_number)
-    vacancy_description = get_vacancy_description(vacancy_number)
-
-    return templates.TemplateResponse("2str.html", {"request": request, "vacancy_number": vacancy_number, "vacancy_description": vacancy_description})
-
-# Пример функции для получения описания вакансии по номеру (замените на вашу реальную логику)
-
-def get_vacancy_number(vacancy_number: str) -> str:
-    # Здесь может быть логика для получения описания вакансии из базы данных или другого источника
-    # Например:
-    if vacancy_number == "talentforce":
-        return "talentforce"
-    else:
-        return "Номер вакансии не найдено."
-
-
-def get_vacancy_description(vacancy_number: str) -> str:
-    # Здесь может быть логика для получения описания вакансии из базы данных или другого источника
-    # Например:
-    if vacancy_number == "talentforce":
-        return "Описание вакансии: Изготовление сложных профильных деталей на фрезерных станках."
-    else:
-        return "Описание вакансии не найдено."
 
 

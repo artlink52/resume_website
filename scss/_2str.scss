@@ -36,7 +36,7 @@ clear: both;
     // margin-bottom: 30px;
 }
 .resume_and_func {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 .resume {
     max-height: 200px; /* Примерная высота для 10 строк */
@@ -88,4 +88,9 @@ clear: both;
     gap: 50px;
     margin-bottom: 30px;
     align-items: center;
+}
+
+.title-vac {
+    font-size: 30px;
+    margin-bottom: 30px !important;
 }

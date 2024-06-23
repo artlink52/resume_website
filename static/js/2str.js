@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Проверяем высоту .resume
-            if (resumeContainer.clientHeight < 200) {
+            if (resumeContainer.clientHeight < 250) {
                 button.style.display = 'none'; 
             } else {
                 button.style.display = 'block'; 
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Проверяем высоту .resume при инициализации
         const resumeContainer = button.previousElementSibling;
-        if (resumeContainer.clientHeight < 200) {
+        if (resumeContainer.clientHeight < 250) {
             button.style.display = 'none'; 
         }
     });

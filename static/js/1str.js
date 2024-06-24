@@ -168,49 +168,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // ОТПРАВКА ДАННЫХ НА СЕРВЕР (ПОКА ЛОКАЛЬНЫЙ)
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('keywordsForm');
+// document.addEventListener('DOMContentLoaded', () => {
+//     const form = document.getElementById('keywordsForm');
 
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
+//     form.addEventListener('submit', async (event) => {
+//         event.preventDefault();
 
-        const keywordsInput = document.getElementById('keywords-input').value;
-        const keywordsArray = keywordsInput.split(' ').filter(Boolean);
+//         const keywordsInput = document.getElementById('keywords-input').value;
+//         const keywordsArray = keywordsInput.split(' ').filter(Boolean);
 
-        const data = {
-            keywords: keywordsArray
-        };
+//         const data = {
+//             keywords: keywordsArray
+//         };
 
-        try {
-            const response = await fetch('/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
+//         try {
+//             const response = await fetch('/submit', {
+//                 method: 'POST',
+//                 headers: {
+//                     'Content-Type': 'application/json'
+//                 },
+//                 body: JSON.stringify(data)
+//             });
 
-            if (!response.ok) {
-                throw new Error(`Network response was not ok: ${response.statusText}`);
-            }
+//             if (!response.ok) {
+//                 throw new Error(`Network response was not ok: ${response.statusText}`);
+//             }
 
-            const result = await response.json();
+//             const result = await response.json();
             
-            console.log('Success:', result);
+//             console.log('Success:', result);
             
-        } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
-        }
-    });
-});
+//         } catch (error) {
+//             console.error('There was a problem with the fetch operation:', error);
+//         }
+//     });
+// });
 
 
-const form = document.querySelector('.vacantion__form');
-const submitButton = document.getElementById('submit-btn');
+// const form = document.querySelector('.form');
+// const submitButton = document.getElementById('submit-btn');
+// // const uid = document.querySelector('.uid__form');
 
-submitButton.addEventListener('click', function(event) {
-    event.preventDefault();  // Предотвращаем стандартное действие кнопки
+// submitButton.addEventListener('click', function(event) {
+//     event.preventDefault();  // Предотвращаем стандартное действие кнопки
 
-    // Доступ к форме и отправка данных
-    form.submit();
-});
+//     // Доступ к форме и отправка данных
+//     form.submit();
+//     // uid.submit();
+// });
+

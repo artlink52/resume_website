@@ -13,19 +13,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 button.textContent = 'Показать больше';
             }
 
-            // Проверяем высоту .resume
-            if (resumeContainer.clientHeight < 250) {
-                button.style.display = 'none'; 
-            } else {
-                button.style.display = 'block'; 
-            }
+            //Проверяем высоту .resume
+            // if (resumeContainer.clientHeight < 201) {
+            //     button.style.display = 'none'; 
+            // } else {
+            //     button.style.display = 'block'; 
+            // }
         });
 
         // Проверяем высоту .resume при инициализации
-        const resumeContainer = button.previousElementSibling;
-        if (resumeContainer.clientHeight < 250) {
-            button.style.display = 'none'; 
-        }
+        // const resumeContainer = button.previousElementSibling;
+        // if (resumeContainer.clientHeight < 201) {
+        //     button.style.display = 'none'; 
+        // }
     });
 
     function updateResumeDisplay() {
@@ -47,4 +47,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Инициализация
     updateResumeDisplay();
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const downloadButtons = document.querySelectorAll('.download-pdf');
+
+    downloadButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const candidateKey = button.getAttribute('data-candidate-key');
+            window.location.href = `/download_pdf?candidate_key=${encodeURIComponent(candidateKey)}`;
+        });
+    });
 });

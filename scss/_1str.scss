@@ -7,26 +7,25 @@ h1 {
 
 // Ввод ключевых слов
 
-.form-container,
-.vacantion,
-.uid {
-    position: relative;
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+.form-container
+ {
     margin-top: 40px;
 }
 
 .form-label {
-    position: absolute;
-    top: -25px;
-    left: 0;
     font-size: 18px;
     color: $biruza; 
     opacity: 1;
-    transition: opacity 0.3s, top 0.3s;
 }
 
-.keywords__form,
-.vacantion__form,
-.uid__form {
+input
+ {
     position: relative;
     border: 1.5px solid #ccc; 
     border-radius: 5px;
@@ -172,10 +171,15 @@ h1 {
 }
 
 .sub-nav-where input[value="everywhere"] {
-    margin-bottom: 30px; /* Расстояние между радиокнопкой и текстом */
+    padding-bottom: 50px; /* Расстояние между радиокнопкой и текстом */
 }
 
 .error-message {
     color: red;
+}
+
+.label_choice {
+    display: flex;
+    align-items: center;
 }
 

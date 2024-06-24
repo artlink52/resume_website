@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме {{ candidate_key }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h3 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3><b>Название резюме:</b> {{ candidate_key }}</h3>
+    <br>
+    {% if candidate_info.education %}
+    <p><b>Образование:</b></p>
+    <ul>
+        {% for edu in candidate_info.education %}
+        <li>&mdash; {{ edu.university }} - {{ edu.specialization }} ({{ edu.year_of_graduation }})</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p><b>Образование:</b> отсутствует</p>
+    {% endif %}
+    <br>
+
+    {% if candidate_info.job %}
+    <p><b>Места работы:</b></p>
+    <ul>
+        {% for job in candidate_info.job %}
+        <li>&mdash;
+            {{ job.company_name }} - {{ job.post }} ({{ job.period_begin }} - {% if job.period_end %}{{ job.period_end }}{% else %}настоящее время{% endif %})<br>
+            {{ job.post_desc | safe }}
+        </li>
+        <br>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p><b>Места работы:</b> отсутствуют</p>
+    {% endif %}
+</body>
+</html>

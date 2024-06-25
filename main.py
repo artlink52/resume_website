@@ -100,7 +100,6 @@ class LabelData(BaseModel):
 @app.post("/process_data")
 async def process_data(data: LabelData):
     label = data.label
-    # Вместо вывода в консоль можно выполнить любую другую обработку данных
     print(f"Получен label: {label}")
     return {"message": "Данные успешно получены"}
 

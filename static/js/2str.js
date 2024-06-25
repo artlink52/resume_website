@@ -50,52 +50,42 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// добавление функ-ти кнопкам подходит не подходит
-
-function handleClickTalent(button, action) {
-    // Находим родительский элемент, содержащий кнопку
-    var parent = button.closest('.resume_and_func-talent');
-
-    // Находим элемент с классом "status-text"
-    var statusText = parent.querySelector('.status-text-talent');
-
-    // В зависимости от действия, изменяем текст и стиль элемента "status-text"
-    if (action === 'add') {
-        statusText.innerText = "Добавлен";
-        statusText.style.color = "green";
-    } else if (action === 'reject') {
-        statusText.innerText = "Отказ";
-        statusText.style.color = "red";
-    }
-}
-
-function handleClickDb(button, action) {
-    // Находим родительский элемент, содержащий кнопку
-    var parent = button.closest('.resume_and_func-db');
-
-    // Находим элемент с классом "status-text"
-    var statusText = parent.querySelector('.status-text-db');
-
-    // В зависимости от действия, изменяем текст и стиль элемента "status-text"
-    if (action === 'add') {
-        statusText.innerText = "Добавлен";
-        statusText.style.color = "green";
-    } else if (action === 'reject') {
-        statusText.innerText = "Отказ";
-        statusText.style.color = "red";
-    }
-}
-
 // хранение добавленных рез.ме
 // Массив для хранения добавленных кандидатов
+// var addedCandidates = [];
+
+// // Обработчик клика по кнопкам "Подходит" и "Не подходит"
+// function handleClickTalent(button, action) {
+//     var parent = button.closest('.resume_and_func-talent');
+//     var key = parent.querySelector('h3').innerText.trim();
+//     var id = parent.querySelector('.candidate-id').innerText.trim();
+
+//     var candidateInfo = {
+//         key: key,
+//         id: id
+//     };
+
+//     var statusText = parent.querySelector('.status-text-talent');
+//     if (action === 'add') {
+//         statusText.innerText = "Добавлен";
+//         statusText.style.color = "green";
+//         addedCandidates.push(candidateInfo); // Добавляем кандидата в массив
+//     } else if (action === 'reject') {
+//         statusText.innerText = "Отказ";
+//         statusText.style.color = "red";
+//         addedCandidates = addedCandidates.filter(function(candidate) {
+//             return candidate.key !== candidateInfo.key;
+//         });
+//     }
+// }
+
 var addedCandidates = [];
 
-// Обработчик клика по кнопкам "Подходит" и "Не подходит"
 function handleClickTalent(button, action) {
     var parent = button.closest('.resume_and_func-talent');
     var key = parent.querySelector('h3').innerText.trim();
     var id = parent.querySelector('.candidate-id').innerText.trim();
-    
+
     var candidateInfo = {
         key: key,
         id: id
@@ -105,7 +95,7 @@ function handleClickTalent(button, action) {
     if (action === 'add') {
         statusText.innerText = "Добавлен";
         statusText.style.color = "green";
-        addedCandidates.push(candidateInfo); // Добавляем кандидата в массив
+        addedCandidates.push(candidateInfo);
     } else if (action === 'reject') {
         statusText.innerText = "Отказ";
         statusText.style.color = "red";
@@ -113,7 +103,32 @@ function handleClickTalent(button, action) {
             return candidate.key !== candidateInfo.key;
         });
     }
+
+    const label = action === 'add' ? 1 : 0;
+    const data = { candidate_id: id, label: label };
+
+    fetch('/process_data', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Произошла ошибка при отправке данных на сервер');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Ответ от сервера:', data);
+    })
+    .catch(error => {
+
+        console.error('Ошибка при отправке данных:', error);
+    });
 }
+
 
 function handleClickDb(button, action) {
     var parent = button.closest('.resume_and_func-db');
@@ -137,6 +152,29 @@ function handleClickDb(button, action) {
             return candidate.key !== candidateInfo.key;
         });
     }
+    const label = action === 'add' ? 1 : 0;
+    const data = { candidate_id: id, label: label };
+
+    fetch('/process_data', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Произошла ошибка при отправке данных на сервер');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Ответ от сервера:', data);
+    })
+    .catch(error => {
+
+        console.error('Ошибка при отправке данных:', error);
+    });
 }
 
 document.getElementById('resumeForm').addEventListener('submit', function(event) {
@@ -164,3 +202,4 @@ document.getElementById('resumeForm').addEventListener('submit', function(event)
         // Обработка ошибок, если необходимо
     });
 });
+

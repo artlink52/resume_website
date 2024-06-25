@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from typing import Optional
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import RedirectResponse, PlainTextResponse
+from fastapi.responses import RedirectResponse, PlainTextResponse, JSONResponse
 import json
 from pydantic import BaseModel
 from typing import Dict, List, Optional
@@ -46,12 +46,12 @@ async def get_first_page(request: Request):
 async def submit_vacancy(
     request: Request, 
     vacancy_number: str = Form(...), 
-    keywords: str = Form(...), 
+    keywords: Optional[str] = Form(None), 
     uid_number: str = Form(...),
     option1: str = Form(None),
     where: List[str] = Form(None)
 ):
-    if not all(keyword.strip() for keyword in keywords.split(';')):
+    if keywords and not all(keyword.strip() for keyword in keywords.split(';')):
         return templates.TemplateResponse("1str.html", {"request": request, "error": "Ключевые слова должны быть разделены точкой с запятой."})
 
     if vacancy_number in vacancies:
@@ -64,6 +64,7 @@ async def submit_vacancy(
         }
         query_string = "&".join(f"{key}={value}" for key, value in query_params.items() if value)
         return RedirectResponse(url=f"/vacancy/{vacancy_number}?{query_string}", status_code=302)
+    
     return templates.TemplateResponse("1str.html", {"request": request, "error": "Введенный номер вакансии и UID не существуют."})
 
 @app.get("/vacancy/{vacancy_key}", response_class=HTMLResponse)
@@ -73,12 +74,6 @@ async def get_vacancy(request: Request, vacancy_key: str):
     vacancy = vacancies[vacancy_key]
     return templates.TemplateResponse("2str.html", {"request": request, "vacancy_number": vacancy_key, "vacancy_value": vacancy["value"], "data": resumes})
 
-class CandidateInfo(BaseModel):
-    key: str
-    id: str
-
-
-added_candidates = []
 
 
 class CandidateInfo(BaseModel):
@@ -99,6 +94,13 @@ async def get_added_candidates(request: Request):
     global added_candidates
     return templates.TemplateResponse("3str.html", {"request": request, "addedCandidates": added_candidates})
 
+class LabelData(BaseModel):
+    label: int
 
-
+@app.post("/process_data")
+async def process_data(data: LabelData):
+    label = data.label
+    # Вместо вывода в консоль можно выполнить любую другую обработку данных
+    print(f"Получен label: {label}")
+    return {"message": "Данные успешно получены"}
 

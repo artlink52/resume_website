@@ -34,6 +34,7 @@ input
     display: flex;
     align-items: center;
     transition: border-color 0.3s;
+    
 
     &:focus-within {
         border-color: $biruza; /* Цвет рамки при фокусе */
@@ -45,18 +46,18 @@ input
         opacity: 1;
     }
 
-    input {
-        width: 100%;
-        border: none;
-        outline: none;
-        height: 100%;
-        padding: 0;
+    // input {
+    //     width: 100%;
+    //     border: none;
+    //     outline: none;
+    //     height: 100%;
+    //     padding: 0;
 
-        &::placeholder {
-            font-size: 15px;
-            opacity: 0.5;
-        }
-    }
+    //     &::placeholder {
+    //         font-size: 15px;
+    //         opacity: 0.5;
+    //     }
+    // }
 }
 
 
@@ -98,6 +99,7 @@ input
     font-weight: 600;
     transition: .3s;
     border: 1.5px solid transparent;
+    margin-bottom: 30px;
     &:hover {
         background: darken($biruza, 10%);
     }
@@ -181,5 +183,33 @@ input
 .label_choice {
     display: flex;
     align-items: center;
+}
+
+.keywords-entry {
+    margin-bottom: 20px;
+}
+.keywords-input {
+    width: 100%;
+}
+
+.title_and_btn {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    font-weight: 600;
+}
+
+.btns_plus_and_minus {
+    font-size: 30px;
+    color: $biruza;
+    display: flex;
+    gap: 10px;
+    
+}
+
+#delete-keywords-btn {
+    padding-bottom: 8px;
+    font-size: 50px;
+    
 }
 

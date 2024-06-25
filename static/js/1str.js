@@ -1,219 +1,108 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var toggleLink = document.getElementById('toggleLink1');
-    var subNav = document.getElementById('subNav1');
-    var radioInputs = document.querySelectorAll('.sub-nav-how input[type="radio"]');
-
-    toggleLink.addEventListener('click', function(event) {
-        event.stopPropagation();
-        if (subNav.style.display === 'none' || subNav.style.display === '') {
-            subNav.style.display = 'block';
-        } else {
-            subNav.style.display = 'none';
-        }
-    });
-
+    document.getElementById('add-keywords-btn').addEventListener('click', function() {
+        var originalEntry = document.querySelector('.keywords-entry');
+        var newEntry = originalEntry.cloneNode(true);
     
-
-    // Обработчик изменения радиокнопок
-    radioInputs.forEach(function(radioInput) {
-        radioInput.addEventListener('change', function() {
-            if (this.checked) {
-                toggleLink.textContent = this.parentElement.textContent.trim();
-                // subNav.style.display = 'none'; // Закрываем подменю после выбора
+        var inputs = newEntry.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].type === 'text') {
+                inputs[i].value = '';
+            } else if (inputs[i].type === 'radio' || inputs[i].type === 'checkbox') {
+                inputs[i].checked = false;
             }
+        }
+    
+        document.getElementById('keywords-container').appendChild(newEntry);
+    
+        // Initialize navigation for the new entry
+        var toggleLinks = newEntry.querySelectorAll('.nav-list__link.toggle-link');
+        toggleLinks.forEach(function(toggleLink) {
+            var subNav = toggleLink.nextElementSibling;
+            var radioInputs = subNav.querySelectorAll('input[type="radio"]');
+            var checkboxInputs = subNav.querySelectorAll('input[type="checkbox"]');
+            initializeNav(toggleLink, subNav, radioInputs, checkboxInputs);
         });
     });
 
-    // Закрытие подменю при клике вне него
-    document.addEventListener('click', function(event) {
-        if (!toggleLink.contains(event.target) && !subNav.contains(event.target)) {
-            subNav.style.display = 'none';
-        }
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleLink = document.getElementById('toggleLink1');
-
-    toggleLink.addEventListener('click', function(event) {
-        event.preventDefault(); // Предотвращаем действие ссылки по умолчанию
-        toggleLink.classList.toggle('expanded'); // Переключаем класс expanded при клике
-    });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleLink = document.getElementById('toggleLink2');
-
-    toggleLink.addEventListener('click', function(event) {
-        event.preventDefault(); // Предотвращаем действие ссылки по умолчанию
-        toggleLink.classList.toggle('expanded'); // Переключаем класс expanded при клике
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    var toggleLink = document.getElementById('toggleLink2');
-    var subNav = document.getElementById('subNav2');
-    var radioInputs = document.querySelectorAll('.sub-nav-where input[type="radio"]');
-
-    toggleLink.addEventListener('click', function(event) {
-        event.stopPropagation();
-        if (subNav.style.display === 'none' || subNav.style.display === '') {
-            subNav.style.display = 'block';
-        } else {
-            subNav.style.display = 'none';
+    document.getElementById('delete-keywords-btn').addEventListener('click', function() {
+        var keywordsEntries = document.querySelectorAll('.keywords-entry');
+        if (keywordsEntries.length > 1) {
+            keywordsEntries[keywordsEntries.length - 1].remove();
         }
     });
 
-    // Обработчик изменения радиокнопок
-    radioInputs.forEach(function(radioInput) {
-        radioInput.addEventListener('change', function() {
-            if (this.checked) {
-                toggleLink.textContent = this.parentElement.textContent.trim();
-                // subNav.style.display = 'none'; // Закрываем подменю после выбора
-            }
+    function initializeNav(toggleLink, subNav, radioInputs, checkboxInputs) {
+        toggleLink.addEventListener('click', function(event) {
+            event.stopPropagation();
+            subNav.style.display = subNav.style.display === 'none' || subNav.style.display === '' ? 'block' : 'none';
         });
-    });
-
-    // Закрытие подменю при клике вне него
-    document.addEventListener('click', function(event) {
-        if (!toggleLink.contains(event.target) && !subNav.contains(event.target)) {
-            subNav.style.display = 'none';
-        }
-    });
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleLink = document.getElementById('toggleLink2');
-    const checkboxes = document.querySelectorAll('.sub-nav-where input[type="checkbox"]');
-    const subNavExperienceCheckboxes = document.querySelectorAll('.sub-nav-where-experience input[type="checkbox"]');
-    const everywhereCheckbox = document.querySelector('.sub-nav-where input[value="everywhere"]');
-    const experienceCheckbox = document.querySelector('.sub-nav-where input[value="experience"]');
     
-    // Функция для обновления текста ссылки в зависимости от выбранных чекбоксов
-    function updateLinkText() {
-        const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked && checkbox.value !== 'everywhere');
-        
-        if (everywhereCheckbox.checked) {
-            toggleLink.textContent = 'Везде';
-        } else if (checkedCheckboxes.length === 0) {
-            toggleLink.textContent = 'Выберите место';
-        } else {
-            let text = checkedCheckboxes.map(checkbox => checkbox.parentElement.textContent.trim()).join(', ');
-            
-            if (experienceCheckbox.checked) {
-                const experienceText = getSelectedExperienceText();
-                if (experienceText !== '') {
-                    text += ` (${experienceText})`;
+        radioInputs.forEach(function(radioInput) {
+            radioInput.addEventListener('change', function() {
+                if (this.checked) {
+                    updateToggleLinkText(toggleLink);
                 }
-            }
-            
-            toggleLink.textContent = text;
-        }
-    }
-    
-    // Функция для получения текста выбранных пунктов в подменю "В опыте работы"
-    function getSelectedExperienceText() {
-        const selectedExperience = [];
-        subNavExperienceCheckboxes.forEach(function(checkbox) {
-            if (checkbox.checked) {
-                selectedExperience.push(checkbox.parentElement.textContent.trim());
-            }
+            });
         });
-        return selectedExperience.length > 0 ? `В опыте работы: ${selectedExperience.join(', ')}` : '';
-    }
     
-    // Обработчик для чекбоксов в основном меню
-    checkboxes.forEach(function(checkbox) {
-        checkbox.addEventListener('change', function() {
-            if (checkbox.value === 'everywhere' && checkbox.checked) {
-                checkboxes.forEach(function(cb) {
-                    cb.checked = true;
-                });
-                subNavExperienceCheckboxes.forEach(function(cb) {
-                    cb.checked = true;
-                });
-                updateLinkText();
-            } else if (checkbox.value === 'everywhere' && !checkbox.checked) {
-                checkboxes.forEach(function(cb) {
-                    if (cb !== everywhereCheckbox) {
+        checkboxInputs.forEach(function(checkboxInput) {
+            checkboxInput.addEventListener('change', function() {
+                if (checkboxInput.value === 'everywhere' && checkboxInput.checked) {
+                    checkboxInputs.forEach(function(cb) {
+                        cb.checked = true;
+                    });
+                    updateToggleLinkText(toggleLink);
+                } else if (checkboxInput.value === 'everywhere' && !checkboxInput.checked) {
+                    checkboxInputs.forEach(function(cb) {
                         cb.checked = false;
-                    }
-                });
-                updateLinkText();
-            } else if (checkbox.value === 'experience' && !checkbox.checked) {
-                subNavExperienceCheckboxes.forEach(function(cb) {
-                    cb.checked = false;
-                });
-                updateLinkText();
-            } else {
-                if (!checkbox.checked && checkbox.value !== 'everywhere') {
-                    checkboxes[0].checked = false;
+                    });
+                    updateToggleLinkText(toggleLink);
+                } else {
+                    updateToggleLinkText(toggleLink);
                 }
-                updateLinkText();
+            });
+        });
+    
+        document.addEventListener('click', function(event) {
+            if (!toggleLink.contains(event.target) && !subNav.contains(event.target)) {
+                subNav.style.display = 'none';
             }
         });
-    });
     
-    // Обработчик для чекбоксов в подменю опыта работы
-    subNavExperienceCheckboxes.forEach(function(checkbox) {
-        checkbox.addEventListener('change', function() {
-            updateLinkText();
-        });
-    });
+        // Set default text
+        updateToggleLinkText(toggleLink);
+    }
     
-    // Инициализация текста ссылки при загрузке страницы
-    updateLinkText();
+
+    function updateToggleLinkText(toggleLink) {
+        var subNav = toggleLink.nextElementSibling;
+        var radioInputs = subNav.querySelectorAll('input[type="radio"]');
+        var checkboxInputs = subNav.querySelectorAll('input[type="checkbox"]');
+
+        if (toggleLink.closest('.nav-list__item').querySelector('.sub-nav-how')) {
+            var selectedRadios = Array.from(radioInputs).filter(radio => radio.checked);
+            if (selectedRadios.length > 0) {
+                toggleLink.textContent = selectedRadios.map(radio => radio.parentElement.textContent.trim()).join(', ');
+            } else {
+                toggleLink.textContent = 'Выберите способ';
+            }
+        } else if (toggleLink.closest('.nav-list__item').querySelector('.sub-nav-where')) {
+            var selectedCheckboxes = Array.from(checkboxInputs).filter(checkbox => checkbox.checked && checkbox.value !== 'everywhere');
+            if (selectedCheckboxes.length > 0) {
+                toggleLink.textContent = selectedCheckboxes.map(checkbox => checkbox.parentElement.textContent.trim()).join(', ');
+            } else if (checkboxInputs[0].checked) {
+                toggleLink.textContent = 'Везде';
+            } else {
+                toggleLink.textContent = 'Выберите место';
+            }
+        }
+    }
+
+    var toggleLinks = document.querySelectorAll('.nav-list__link.toggle-link');
+    toggleLinks.forEach(function(toggleLink) {
+        var subNav = toggleLink.nextElementSibling;
+        var radioInputs = subNav.querySelectorAll('input[type="radio"]');
+        var checkboxInputs = subNav.querySelectorAll('input[type="checkbox"]');
+        initializeNav(toggleLink, subNav, radioInputs, checkboxInputs);
+    });
 });
-
-
-// ОТПРАВКА ДАННЫХ НА СЕРВЕР (ПОКА ЛОКАЛЬНЫЙ)
-// document.addEventListener('DOMContentLoaded', () => {
-//     const form = document.getElementById('keywordsForm');
-
-//     form.addEventListener('submit', async (event) => {
-//         event.preventDefault();
-
-//         const keywordsInput = document.getElementById('keywords-input').value;
-//         const keywordsArray = keywordsInput.split(' ').filter(Boolean);
-
-//         const data = {
-//             keywords: keywordsArray
-//         };
-
-//         try {
-//             const response = await fetch('/submit', {
-//                 method: 'POST',
-//                 headers: {
-//                     'Content-Type': 'application/json'
-//                 },
-//                 body: JSON.stringify(data)
-//             });
-
-//             if (!response.ok) {
-//                 throw new Error(`Network response was not ok: ${response.statusText}`);
-//             }
-
-//             const result = await response.json();
-            
-//             console.log('Success:', result);
-            
-//         } catch (error) {
-//             console.error('There was a problem with the fetch operation:', error);
-//         }
-//     });
-// });
-
-
-// const form = document.querySelector('.form');
-// const submitButton = document.getElementById('submit-btn');
-// // const uid = document.querySelector('.uid__form');
-
-// submitButton.addEventListener('click', function(event) {
-//     event.preventDefault();  // Предотвращаем стандартное действие кнопки
-
-//     // Доступ к форме и отправка данных
-//     form.submit();
-//     // uid.submit();
-// });
-

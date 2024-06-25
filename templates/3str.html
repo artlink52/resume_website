@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3str</title>
+    <link rel="stylesheet" href="/static/css/style.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Подходящие резюме</h1>
+        <ul>
+            {% for candidate_info in addedCandidates %}
+            <li>
+                <a href="{{ candidate_info.id }}">{{ candidate_info.key }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

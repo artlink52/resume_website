@@ -9,9 +9,10 @@ hr.separator:after {
     width: 10px;
     }
 hr.separator {
-border-top: 1px solid $biruza;
-width: 100%;
-clear: both;
+    border-top: 1px solid $biruza;
+    width: 100%;
+    clear: both;
+    margin-top: 30px;
 }  
 
 .num-vac {
@@ -22,6 +23,14 @@ clear: both;
     margin-bottom: 30px;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
+.resume_and_func-talent {
+    margin-bottom: 50px;
+    background-color: rgb(204, 204, 204);
+    padding: 10px 10px;
+    border-radius: 10px;
+}
 .resume-talent {
     margin-top: 30px;
 }
@@ -30,13 +39,11 @@ clear: both;
     gap: 50px;
     margin-bottom: 30px;
     align-items: center;
+    
 }
 .title {
     font-size: 30px;
     // margin-bottom: 30px;
-}
-.resume_and_func {
-    margin-bottom: 50px;
 }
 .resume {
     max-height: 200px; /* Примерная высота для 10 строк */
@@ -96,8 +103,9 @@ clear: both;
     margin-bottom: 30px !important;
 }
 
-.resume_and_func {
-    background-color: rgb(204, 204, 204);
+.resume_and_func-db {
+    background-color: rgb(250, 250, 116);
     padding: 10px 10px;
     border-radius: 10px;
+    margin-bottom: 50px;
 }

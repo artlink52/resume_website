@@ -12,9 +12,12 @@
 
         <div class="vacs">
             <h3 class="title-vac">Вакансия</h3>
-            <p class="num-vac"><b>Номер вакансии:</b> {{ vacancy_number }}<a href="/download/19d9a2d3-89ba-b21c-a4eb-65f99d5dec19_Фрезеровщик"> - Выгрузить подходящие резюме в файл </a></p>
+            <p class="num-vac"><b>Номер вакансии:</b> {{ vacancy_number }}</p>
             <p class="desc-vac"><b>Описание вакансии:</b> {{ vacancy_value }}</p>
         </div>
+        <form action="/process-resumes" method="post">
+            <button type="submit">Выгрузить все подходящие резюме</button>
+        </form>
         <hr class="separator">
 
         <div class="resume-talent">
@@ -34,50 +37,50 @@
                 </form>
             </div>
 
-            <div class="resumes">
-                {% for candidate_key, candidate_info in data.items() %}
-                <div class="resume_and_func">
+            <div class="resumes-talent">
+                {% for candidate_info in data %}
+                <div class="resume_and_func-talent">
                     <div class="resume" id="resumeContainer">
-                        
-                            <h3><b>Название резюме:</b> {{ candidate_key }}</h3>
-                            <br>
-                            {% if candidate_info.education %}
-                                <p><b>Образование:</b></p>
-                                <ul>
-                                    {% for edu in candidate_info.education %}
-                                        <li>&mdash; {{ edu.university }} - {{ edu.specialization }} ({{ edu.year_of_graduation }})</li>
-                                    {% endfor %}
-                                </ul>
-                            {% else %}
-                                <p><b>Образование:</b> отсутствует</p>
-                            {% endif %}
-                            <br>
-
-                            {% if candidate_info.job %}
-                            <p><b><b>Места работы:</b></b></p>
+                        <h3><b>Название резюме:</b> {{ candidate_info.key }}
+                            <span class="status-text-talent"></span>
+                        </h3>
+                        <p style="display: none;" class="candidate-id">{{ candidate_info.id }}</p>
+                        <br>
+                        {% if candidate_info.education %}
+                            <p><b>Образование:</b></p>
                             <ul>
-                                {% for job in candidate_info.job %}
-                                    <li>&mdash;
-                                        {{ job.company_name }} - {{ job.post }} ({{ job.period_begin }} - {% if job.period_end %}{{ job.period_end }}{% else %}настоящее время{% endif %})<br>
-                                        {{ job.post_desc | safe }}
-                                        
-                                    </li>
-                                    <br>
+                                {% for edu in candidate_info.education %}
+                                    <li>&mdash; {{ edu.university }} - {{ edu.specialization }} ({{ edu.year_of_graduation }})</li>
                                 {% endfor %}
                             </ul>
-                            {% else %}
-                                <p><b>Места работы:</b> отсутствуют</p>
-                            {% endif %}
-                        
+                        {% else %}
+                            <p><b>Образование:</b> отсутствует</p>
+                        {% endif %}
+                        <br>
+
+                        {% if candidate_info.job %}
+                        <p><b>Места работы:</b></p>
+                        <ul>
+                            {% for job in candidate_info.job %}
+                                <li>&mdash;
+                                    {{ job.company_name }} - {{ job.post }} ({{ job.period_begin }} - {% if job.period_end %}{{ job.period_end }}{% else %}настоящее время{% endif %})<br>
+                                    {{ job.post_desc | safe }}
+                                </li>
+                                <br>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                            <p><b>Места работы:</b> отсутствуют</p>
+                        {% endif %}
                     </div>
                     <button class="toggle-button" id="toggleButton">Показать больше</button>
                     <div class="btns">
-                        <button class="btn1">Подходит</button>
-                        <button class="btn2">Не подходит</button>
+                        <button class="btn1" onclick="handleClickTalent(this, 'add')">Подходит</button>
+                        <button class="btn2" onclick="handleClickTalent(this, 'reject')">Не подходит</button>
                     </div>
-                    
                 </div>
                 {% endfor %}
+
 
             </div>
 
@@ -99,6 +102,52 @@
                         <option value="all">Все</option>
                     </select>
                 </form>
+            </div>
+            <div class="resumes-talent">
+                {% for candidate_info in data %}
+                <div class="resume_and_func-db">
+                    <div class="resume" id="resumeContainer">
+                        <h3><b>Название резюме:</b> {{ candidate_info.key }}
+                            <span class="status-text-db"></span>
+                        </h3>
+                        
+                        <br>
+                        {% if candidate_info.education %}
+                            <p><b>Образование:</b></p>
+                            <ul>
+                                {% for edu in candidate_info.education %}
+                                    <li>&mdash; {{ edu.university }} - {{ edu.specialization }} ({{ edu.year_of_graduation }})</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p><b>Образование:</b> отсутствует</p>
+                        {% endif %}
+                        <br>
+
+                        {% if candidate_info.job %}
+                        <p><b>Места работы:</b></p>
+                        <ul>
+                            {% for job in candidate_info.job %}
+                                <li>&mdash;
+                                    {{ job.company_name }} - {{ job.post }} ({{ job.period_begin }} - {% if job.period_end %}{{ job.period_end }}{% else %}настоящее время{% endif %})<br>
+                                    {{ job.post_desc | safe }}
+                                </li>
+                                <br>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                            <p><b>Места работы:</b> отсутствуют</p>
+                        {% endif %}
+                    </div>
+                    <button class="toggle-button" id="toggleButton">Показать больше</button>
+                    <div class="btns">
+                        <button class="btn1" onclick="handleClickDb(this, 'add')">Подходит</button>
+                        <button class="btn2" onclick="handleClickDb(this, 'reject')">Не подходит</button>
+                    </div>
+                </div>
+                {% endfor %}
+
+
             </div>
         </div>
 

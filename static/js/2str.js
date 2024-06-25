@@ -144,7 +144,7 @@ function handleClickDb(button, action) {
     if (action === 'add') {
         statusText.innerText = "Добавлен";
         statusText.style.color = "green";
-        addedCandidates.push(candidateInfo); // Добавляем кандидата в массив
+        addedCandidates.push(candidateInfo); 
     } else if (action === 'reject') {
         statusText.innerText = "Отказ";
         statusText.style.color = "red";
@@ -178,7 +178,7 @@ function handleClickDb(button, action) {
 }
 
 document.getElementById('resumeForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Предотвращаем стандартное поведение формы
+    event.preventDefault(); 
 
     fetch('/process-resumes', {
         method: 'POST',
@@ -194,12 +194,12 @@ document.getElementById('resumeForm').addEventListener('submit', function(event)
         return response.json();
     })
     .then(data => {
-        // Переходим на нужную вам страницу или выполняем дополнительные действия
+
         window.location.href = '/added-resumes';
     })
     .catch(error => {
         console.error('Ошибка:', error);
-        // Обработка ошибок, если необходимо
+
     });
 });
 

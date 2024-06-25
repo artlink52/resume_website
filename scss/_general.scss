@@ -5,6 +5,13 @@ $text-gray: #8C8F90;
 body {
     font-family: 'Poppins', sans-serif;
 }
+.wrapper {
+    display: flex;
+    justify-content: center; /* Выравнивание по горизонтали по центру */
+    align-items: center; /* Выравнивание по вертикали по центру */
+    height: 80vh; /* Занимает всю высоту видимой части экрана */
+}
+
 .container {
     margin-top: 50px !important;
     margin-bottom: 50px !important;

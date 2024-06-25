@@ -15,8 +15,8 @@
             <p class="num-vac"><b>Номер вакансии:</b> {{ vacancy_number }}</p>
             <p class="desc-vac"><b>Описание вакансии:</b> {{ vacancy_value }}</p>
         </div>
-        <form action="/process-resumes" method="post">
-            <button type="submit">Выгрузить все подходящие резюме</button>
+        <form id="resumeForm" action="/process-resumes" method="post">
+            <button type="submit" class="download-resumes">Выгрузить все подходящие резюме</button>
         </form>
         <hr class="separator">
 
@@ -41,11 +41,11 @@
                 {% for candidate_info in data %}
                 <div class="resume_and_func-talent">
                     <div class="resume" id="resumeContainer">
-                        <h3><b>Название резюме:</b> {{ candidate_info.key }}
-                            <span class="status-text-talent"></span>
-                        </h3>
+                        <h1 class="status-text-talent"></h1>
+                        <h2><b>Название резюме:</b> <h3>{{ candidate_info.key }}</h3>
+                        </h2>
                         <p style="display: none;" class="candidate-id">{{ candidate_info.id }}</p>
-                        <br>
+                        <br><br>
                         {% if candidate_info.education %}
                             <p><b>Образование:</b></p>
                             <ul>
@@ -107,11 +107,11 @@
                 {% for candidate_info in data %}
                 <div class="resume_and_func-db">
                     <div class="resume" id="resumeContainer">
-                        <h3><b>Название резюме:</b> {{ candidate_info.key }}
-                            <span class="status-text-db"></span>
-                        </h3>
-                        
-                        <br>
+                        <h1 class="status-text-db"></h1>
+                        <h2><b>Название резюме:</b> <h3>{{ candidate_info.key }}</h3>
+                        </h2>
+                        <p style="display: none;" class="candidate-id">{{ candidate_info.id }}</p>
+                        <br><br>
                         {% if candidate_info.education %}
                             <p><b>Образование:</b></p>
                             <ul>

@@ -81,23 +81,21 @@ class CandidateInfo(BaseModel):
 added_candidates = []
 
 
-# Модель данных для кандидата
 class CandidateInfo(BaseModel):
     key: str
     id: str
 
-added_candidates = []  # Список для хранения добавленных кандидатов
+# Список добавленных кандидатов
+added_candidates = []
 
-# Обработчик POST запроса для добавления кандидатов
 @app.post("/process-resumes")
-def process_resumes(candidates: List[CandidateInfo]):
+async def process_resumes(candidates: List[CandidateInfo]):
     global added_candidates
     added_candidates = candidates
-    return RedirectResponse(url="/get-added-candidates", status_code=302)
+    return {"message": "Данные успешно обработаны"}
 
-# GET запрос для страницы 3str.html
-@app.get("/get-added-candidates", response_model=List[CandidateInfo])
-def get_added_candidates(request: Request):
+@app.get("/added-resumes", response_class=HTMLResponse)
+async def get_added_candidates(request: Request):
     global added_candidates
     return templates.TemplateResponse("3str.html", {"request": request, "addedCandidates": added_candidates})
 

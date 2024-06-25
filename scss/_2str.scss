@@ -109,3 +109,23 @@ hr.separator {
     border-radius: 10px;
     margin-bottom: 50px;
 }
+
+.download-resumes {
+    border: 2px solid $biruza;
+    padding: 10px 10px;
+    font-weight: 600;
+    transition: .3s;
+    &:hover {
+        color: white;
+        background-color: $biruza;
+    }
+}
+
+.status-text-talent {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+.status-text-db {
+    font-size: 20px;
+    padding-bottom: 10px;
+}

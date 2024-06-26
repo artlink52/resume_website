@@ -106,3 +106,104 @@ document.addEventListener('DOMContentLoaded', function() {
         initializeNav(toggleLink, subNav, radioInputs, checkboxInputs);
     });
 });
+let keywordCount = 1;
+    document.getElementById('add-keywords-btn').addEventListener('click', function() {
+        const container = document.getElementById('keywords-container');
+        const entry = document.createElement('div');
+        entry.className = 'keywords-entry';
+        entry.innerHTML = `
+            <label for="keywords-input-${keywordCount}" class="form-label">Ключевые слова</label>
+            <input type="text" class="keywords-input" placeholder="Введите ключевые слова через точку с запятой" name="keywords_${keywordCount}">
+            <nav class="key-words__nav">
+                <ul class="nav-list">
+                    <li class="nav-list__item">
+                        <a href="#!" class="nav-list__link toggle-link">Выберите способ</a>
+                        <div class="nav-list__sub-nav-how sub-nav">
+                            <ul class="sub-nav-how">
+                                <li>
+                                    <label class="label_choice">
+                                        <input type="radio" name="option1_${keywordCount}" value="all_words">Все слова
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label_choice">
+                                        <input type="radio" name="option1_${keywordCount}" value="any_word">Любое из слов
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label_choice">
+                                        <input type="radio" name="option1_${keywordCount}" value="exact_phrase">Точная фраза
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label_choice">
+                                        <input type="radio" name="option1_${keywordCount}" value="not_appear">Не встречаются
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-list__item">
+                        <a href="#!" class="nav-list__link toggle-link">Выберите место</a>
+                        <div class="nav-list__sub-nav-where sub-nav">
+                            <ul class="sub-nav-where">
+                                <li>
+                                    <label class="label_choice">
+                                        <input type="checkbox" name="where_${keywordCount}" value="everywhere">Везде
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label_choice">
+                                        <input type="checkbox" name="where_${keywordCount}" value="resume_title">В названии резюме
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label_choice">
+                                        <input type="checkbox" name="where_${keywordCount}" value="education">В образовании
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label_choice">
+                                        <input type="checkbox" name="where_${keywordCount}" value="skills">В ключевых навыках
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label_choice">
+                                        <input type="checkbox" name="where_${keywordCount}" value="experience">В опыте работы
+                                    </label>
+                                    <ul class="sub-nav-where-experience">
+
+                                    <li>
+                                    <label class="label_choice">
+                                        <input type="checkbox" name="where_${keywordCount}" value="companies" class="experience-checkbox">В компаниях и отраслях
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label_choice">
+                                        <input type="checkbox" name="where_${keywordCount}" value="job" class="experience-checkbox">В должностях
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label_choice">
+                                        <input type="checkbox" name="where_${keywordCount}" value="duties" class="experience-checkbox">В обязанностях
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+`;
+document.getElementById('group_count').value = keywordCount + 1;
+keywordCount++;
+});
+
+document.getElementById('delete-keywords-btn').addEventListener('click', function() {
+const container = document.getElementById('keywords-container');
+if (container.children.length > 1) {
+    keywordCount--;
+    document.getElementById('group_count').value = keywordCount;
+}
+});

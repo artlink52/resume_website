@@ -20,12 +20,12 @@
                             <button type="button" id="add-keywords-btn">+</button>
                             <button type="button" id="delete-keywords-btn">-</button>
                         </div>
-                        
                     </div>
+                    <input type="hidden" name="group_count" id="group_count" value="1">
                     <div id="keywords-container">
                         <div class="keywords-entry">
-                            <label for="keywords-input" class="form-label">Ключевые слова</label>
-                            <input type="text" class="keywords-input" placeholder="Введите ключевые слова через точку с запятой" name="keywords">
+                            <label for="keywords-input-0" class="form-label">Ключевые слова</label>
+                            <input type="text" class="keywords-input" placeholder="Введите ключевые слова через точку с запятой" name="keywords_0">
                             <nav class="key-words__nav">
                                 <ul class="nav-list">
                                     <li class="nav-list__item">
@@ -34,22 +34,22 @@
                                             <ul class="sub-nav-how">
                                                 <li>
                                                     <label class="label_choice">
-                                                        <input type="radio" name="option1" value="all_words">Все слова
+                                                        <input type="radio" name="option1_0" value="all_words">Все слова
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label class="label_choice">
-                                                        <input type="radio" name="option1" value="any_word">Любое из слов
+                                                        <input type="radio" name="option1_0" value="any_word">Любое из слов
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label class="label_choice">
-                                                        <input type="radio" name="option1" value="exact_phrase">Точная фраза
-                                                    </label class="label_choice">
+                                                        <input type="radio" name="option1_0" value="exact_phrase">Точная фраза
+                                                    </label>
                                                 </li>
                                                 <li>
                                                     <label class="label_choice">
-                                                        <input type="radio" name="option1" value="not_appear">Не встречаются
+                                                        <input type="radio" name="option1_0" value="not_appear">Не встречаются
                                                     </label>
                                                 </li>
                                             </ul>
@@ -61,56 +61,58 @@
                                             <ul class="sub-nav-where">
                                                 <li>
                                                     <label class="label_choice">
-                                                        <input type="checkbox" name="where" value="everywhere">Везде
+                                                        <input type="checkbox" name="where_0" value="everywhere">Везде
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label class="label_choice">
-                                                        <input type="checkbox" name="where" value="resume_title">В названии резюме
+                                                        <input type="checkbox" name="where_0" value="resume_title">В названии резюме
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label class="label_choice">
-                                                        <input type="checkbox" name="where" value="education">В образовании
+                                                        <input type="checkbox" name="where_0" value="education">В образовании
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label class="label_choice">
-                                                        <input type="checkbox" name="where" value="skills">В ключевых навыках
+                                                        <input type="checkbox" name="where_0" value="skills">В ключевых навыках
                                                     </label>
                                                 </li>
                                                 <li>
                                                     <label class="label_choice">
-                                                        <input type="checkbox" name="where" value="experience">В опыте работы
-                                                    </label class="label_choice">
+                                                        <input type="checkbox" name="where_0" value="experience">В опыте работы
+                                                    </label>
                                                     <ul class="sub-nav-where-experience">
                                                         <li>
-                                                            <label class="label_choice">
-                                                                <input type="checkbox" name="where" value="companies" class="experience-checkbox">В компаниях и отраслях
-                                                            </label>
-                                                        </li>
-                                                        <li>
-                                                            <label class="label_choice">
-                                                                <input type="checkbox" name="where" value="job" class="experience-checkbox">В должностях
-                                                            </label>
-                                                        </li>
-                                                        <li>
-                                                            <label class="label_choice">
-                                                                <input type="checkbox" name="where" value="duties" class="experience-checkbox">В обязанностях
-                                                            </label class="label_choice">
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </nav>
+                                                            
+                                            <label class="label_choice">
+                                                <input type="checkbox" name="where_0" value="companies" class="experience-checkbox">В компаниях и отраслях
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label class="label_choice">
+                                                <input type="checkbox" name="where_0" value="job" class="experience-checkbox">В должностях
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label class="label_choice">
+                                                <input type="checkbox" name="where_0" value="duties" class="experience-checkbox">В обязанностях
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
-                    </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
                     <br><br>
                     <label for="vacantion-input" class="form-label">Номер заявки</label>
-                    <input type="text" id="vacantion-input" placeholder="Введите номер вакансии" name="vacancy_number" required>
+                    <input type="text" id="vacantion-input" placeholder="Введите номер вакансии" name="vacancy_number">
                     <br><br>
                     <label for="uid-input" class="form-label">UID</label>
                     <input type="text" id="uid-input" placeholder="Введите UID" name="uid_number">

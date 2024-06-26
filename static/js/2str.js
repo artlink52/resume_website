@@ -105,7 +105,7 @@ function handleClickTalent(button, action) {
     }
 
     const label = action === 'add' ? 1 : 0;
-    const data = { candidate_id: id, label: label };
+    const data = { key: key, id: id, label: label };
 
     fetch('/process_data', {
         method: 'POST',
@@ -153,7 +153,7 @@ function handleClickDb(button, action) {
         });
     }
     const label = action === 'add' ? 1 : 0;
-    const data = { candidate_id: id, label: label };
+    const data = { key: key, id: id, label: label };
 
     fetch('/process_data', {
         method: 'POST',

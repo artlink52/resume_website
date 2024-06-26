@@ -43,29 +43,48 @@ async def get_first_page(request: Request):
 
 
 @app.post("/submit-vacancy")
-async def submit_vacancy(
-    request: Request, 
-    vacancy_number: str = Form(...), 
-    keywords: Optional[str] = Form(None), 
-    uid_number: str = Form(...),
-    option1: str = Form(None),
-    where: List[str] = Form(None)
-):
-    if keywords and not all(keyword.strip() for keyword in keywords.split(';')):
-        return templates.TemplateResponse("1str.html", {"request": request, "error": "Ключевые слова должны быть разделены точкой с запятой."})
+async def submit_vacancy(request: Request):
+    form_data = await request.form()
+    
+    vacancy_number = form_data.get('vacancy_number')
+    group_count = int(form_data.get('group_count', 1))
+    uid_number = form_data.get('uid_number')
+    
+    all_keywords = []
+    all_options = []
+    all_where = []
+
+    for i in range(group_count):
+        keywords = form_data.getlist(f'keywords_{i}')
+        option1 = form_data.getlist(f'option1_{i}')
+        where = form_data.getlist(f'where_{i}')
+
+        if keywords:
+            all_keywords.extend(keywords)
+        if option1:
+            all_options.extend(option1)
+        if where:
+            all_where.extend(where)
+
+    if all_keywords:
+        keywords = ';'.join(all_keywords)
+        if keywords and not all(keyword.strip() for keyword in keywords.split(';')):
+            return templates.TemplateResponse("1str.html", {"request": request, "error": "Ключевые слова должны быть разделены точкой с запятой."})
 
     if vacancy_number in vacancies:
         query_params = {
-            # "vacancy_number": vacancy_number,
-            "keywords": keywords,
             "uid_number": uid_number,
-            "option1": option1,
-            "where": ",".join(where) if where else ""
+            "keywords": keywords if all_keywords else None,
+            "option1": all_options[0] if all_options else None,  
+            "where": ','.join(all_where) if all_where else ""
         }
         query_string = "&".join(f"{key}={value}" for key, value in query_params.items() if value)
         return RedirectResponse(url=f"/vacancy/{vacancy_number}?{query_string}", status_code=302)
     
     return templates.TemplateResponse("1str.html", {"request": request, "error": "Введенный номер вакансии и UID не существуют."})
+
+    
+
 
 @app.get("/vacancy/{vacancy_key}", response_class=HTMLResponse)
 async def get_vacancy(request: Request, vacancy_key: str):
@@ -95,11 +114,15 @@ async def get_added_candidates(request: Request):
     return templates.TemplateResponse("3str.html", {"request": request, "addedCandidates": added_candidates})
 
 class LabelData(BaseModel):
+    key: str
+    id: str
     label: int
 
 @app.post("/process_data")
 async def process_data(data: LabelData):
+    key = data.key
+    id = data.id
     label = data.label
-    print(f"Получен label: {label}")
+    print(f"Получен label: {label}, key: {key}, id: {id}")
     return {"message": "Данные успешно получены"}
 

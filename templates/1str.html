@@ -21,6 +21,21 @@
                             <button type="button" id="delete-keywords-btn">-</button>
                         </div>
                     </div>
+                    <div class="logical-operator-container" style="display: none;">
+                        <label>Выберите оператор:</label>
+                        <ul>
+                            <li>
+                                <label class="logical-operator">
+                                    <input type="radio" name="logical_operator" value="AND" checked> AND
+                                </label>
+                            </li>
+                            <li>
+                                <label class="logical-operator">
+                                    <input type="radio" name="logical_operator" value="OR"> OR
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
                     <input type="hidden" name="group_count" id="group_count" value="1">
                     <div id="keywords-container">
                         <div class="keywords-entry">
@@ -85,31 +100,32 @@
                                                     </label>
                                                     <ul class="sub-nav-where-experience">
                                                         <li>
-                                                            
-                                            <label class="label_choice">
-                                                <input type="checkbox" name="where_0" value="companies" class="experience-checkbox">В компаниях и отраслях
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="label_choice">
-                                                <input type="checkbox" name="where_0" value="job" class="experience-checkbox">В должностях
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="label_choice">
-                                                <input type="checkbox" name="where_0" value="duties" class="experience-checkbox">В обязанностях
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
+                                                            <label class="label_choice">
+                                                                <input type="checkbox" name="where_0" value="companies" class="experience-checkbox">В компаниях и отраслях
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="label_choice">
+                                                                <input type="checkbox" name="where_0" value="job" class="experience-checkbox">В должностях
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="label_choice">
+                                                                <input type="checkbox" name="where_0" value="duties" class="experience-checkbox">В обязанностях
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-
+                    </div>
+                    <br><br>
+                    
+                    
                     <br><br>
                     <label for="vacantion-input" class="form-label">Номер заявки</label>
                     <input type="text" id="vacantion-input" placeholder="Введите номер вакансии" name="vacancy_number">
@@ -117,6 +133,7 @@
                     <label for="uid-input" class="form-label">UID</label>
                     <input type="text" id="uid-input" placeholder="Введите UID" name="uid_number">
                     <button class="btn" type="submit" id="submit-btn">ПОИСК</button>
+                    <p class="error-message" style="display: none;" id="error-message">Заполните хотя бы одно поле: Номер заявки или UID.</p>
                     {% if error %}
                     <p class="error-message">{{ error }}</p>
                     {% endif %}

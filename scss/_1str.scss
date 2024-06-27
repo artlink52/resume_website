@@ -213,3 +213,32 @@ input
     
 }
 
+.logical-operator-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logical-operator-container ul {
+    display: flex;
+    list-style-type: none; /* Убирает маркеры списка */
+    padding: 0; /* Убирает отступы */
+    margin: 0; /* Убирает отступы */
+}
+
+.logical-operator-container li {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* Отступы между элементами списка */
+}
+
+.logical-operator-container label {
+    margin: 0; /* Убирает отступы у меток */
+    display: flex;
+    align-items: center;
+}
+
+.logical-operator-container input[type="radio"] {
+    margin-right: 5px; /* Отступ между радиокнопкой и текстом */
+}
+
